@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalabe=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<title>MyLibrary</title>
+<style>
+.desc {
+   float: left;
+   width: 100%;
+   color: #888;
+   font-size: 0.9em;
+}
+
+.button {
+   float: left;
+   width: 100%;
+   line-height: 40px;
+   text-align: center;
+   font-size: 1.0em;
+   background-color: white;
+   color: #35D;
+   border: 1px solid #35D;
+   border-radius: 4px;
+}
+
+input[type=submit] {
+	color: white;
+	background-color: #bebebe;
+	border: 1px solid #bebebe;
+	border-radius: 5px;
+}
+
+.topdown {
+	margin-top: -60px;	
+}
+
+.fid {
+	margin-top: 70px;
+	margin-left: 32px;
+	margin-right: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #bd6ece;
+	background-color: transparent;
+	border: 0px none;
+}
+
+.fid:active {
+	color: #bd6ece;
+	}
+
+.fps {
+	margin-top: 70px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #888;
+	background-color: transparent;
+	border: 0px none;
+}
+
+.fps:active {
+	color: #bd6ece;
+	}
+
+input[type=submit] {
+	float: left;
+    width: 86%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #bd6ece;
+}
+</style>
+</head>
+<body>
+   <div class="page-hdr">아이디/비밀번호 찾기</div>
+   <a href="findid.html"><input type="button" class="fid" value="아이디 찾기"></a>
+   <a href="findps.html"><input type="button" class="fps" value="비밀번호 찾기"></a>
+   <hr size=1px width= 100% color="#400080">
+   <div class="page-body">
+      <div class="section2 pad-24"><div class="topdown">
+       	<input id="name" type="text" class="mtop-10" placeholder="이름">
+       	<input id="tel" type="text" class="mtop-10" placeholder="전화번호">
+       	<input id="birth" type="text" class="mtop-10" placeholder="생년월일">
+       	</div></div></div>
+       	<input type="submit" value="아이디 찾기" onclick="findid()">         
+</body>
+</html>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script>
+function findid() {
+	var name = $("#name").val().trim();
+	if (name == "") {
+		alert("이름을 입력해 주세요.");
+		$("#name").focus();
+		return;
+	}
+	
+	var tel = $("#tel").val().trim();
+	if (tel == "") {
+		alert("전화번호를 입력해 주세요.");
+		$("#tel").focus();
+		return;
+	}
+	
+	var birth = $("#birth").val().trim();
+	if (birth == "") {
+		alert("생년월일을 입력해 주세요.");
+		$("#birth").focus();
+		return;
+	}
+	
+	var url = "jsp/findid.jsp?name=" + name + "&tel=" + tel + "&birth" + birth;
+	AJAX.call(url, null, function(data) {
+		var code = data.trim();
+		if (code == "NA") {
+			alert("회원 정보를 찾을 수 없습니다.");
+		}
+		else {
+			alert("아이디 " + code);
+			window.location.href = "login.html";
+
+		}
+	});
+}
+</script>

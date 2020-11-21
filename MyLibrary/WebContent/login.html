@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<title>MyLibrary</title>
+<style>
+.desc {
+	float: left;
+	width: 100%;
+	color: #888;
+	font-size: 0.9em;
+}
+
+input[type=submit] {
+	margin-top: -105px;
+	box-sizing: border-box;
+	float: right;
+	width: 25%;
+	padding-top: 40px;
+	padding-bottom: 42px;
+	margin-right: 25px;
+	color: white;
+	background-color: #bebebe;
+	border: 1px solid #bebebe;
+	border-radius: 5px;
+}
+
+input[type=button] {
+	margin-left: 43px;
+	margin-top: 20px;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: transparent;
+	border: 0px none;
+}
+</style>
+</head>
+<body>
+	<div class="page-hdr">로그인</div>
+	<div class="page-body">
+		<div class="section pad-24 mtop-30">
+			<input id="id" type="text" placeholder="아이디">
+			<input id="ps" type="password" class="mtop-10" placeholder="비밀번호">
+		</div>
+	</div>
+	<input type="submit" value="로그인" onclick="login()">
+	<a href="signup.html"><input type="button" value="회원가입"></a>
+	<a href="findid.html"><input type="button" value="아이디/비밀번호찾기"></a>
+</body>
+</html>
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script>
+function login() {
+	var id = $("#id").val().trim();
+	if (id == "") {
+		alert("아이디를 입력해 주세요.");
+		$("#id").focus();
+		return;
+	}
+	
+	var ps = $("#ps").val().trim();
+	if (ps == "") {
+		alert("패스워드를 입력해 주세요.");
+		$("#ps").focus();
+		return;
+	}
+	
+	var url = "jsp/login.jsp?id=" + id + "&ps=" + ps;
+	AJAX.call(url, null, function(data) {
+		var code = data.trim();
+		if (code == "NA") {
+			alert("회원 정보를 찾을 수 없습니다.");
+		}
+		else if (code == "PS") {
+			alert("패스워드가 일치하지 않습니다.");
+		}
+		else if (code == "EX") {
+			alert("이미 로그인 하셨습니다.");
+		}
+		else {
+			alert("로그인이 완료되었습니다.");
+			window.location.href = "main.html";
+
+		}
+	});
+}
+</script>

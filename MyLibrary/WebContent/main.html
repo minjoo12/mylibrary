@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>MyLibrary</title>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<style type="text/css">
+
+img.wish {
+	width: 95px;
+	height: 90px;
+	float: left;
+	margin-top: 60px;
+	margin-left: 120px;
+}
+
+.wish_ {
+	margin-top: 160px;
+	margin-left: 135px;
+	color: #6b4194;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+img.bookf {
+	width: 95px;
+	height: 90px;
+	float: left;
+	margin-top: 60px;
+	margin-left: 130px;
+}
+
+.bookf_ {
+	margin-top: 160px;
+	margin-left: 135px;
+	margin-bottom: 60px;
+	color: #6b4194;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.logout {
+  text-align: center;
+  color: #6b4194;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+	<div class="page-hdr">품 안의 도서관</div>
+	<div class="page-body">
+	<img src="images/그림11.png" class="wish">
+	<div class="wish_">나의 서재</div>
+	<img src="images/그림28.png" class="bookf">
+	<div class="bookf_">도서 검색</div></div>
+	<div class="logout" onclick="logout()">로그아웃</div>
+</body>
+</html>
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	Page.init(start);
+});
+
+var pagectx = {};
+function start(usrobj) {
+	pagectx.usrobj = usrobj;
+	
+	var params = "id=" + usrobj.id;
+}
+/*
+	AJAX.call("jsp/feedFetch.jsp", params, function(data) {
+		var feeds = JSON.parse(data.trim());
+		var list = feeds.concat(feedList);
+		generate(list);
+	});
+}
+
+function generate(list) {
+	var str = "";
+	for (var i=0; i<list.length; i++) {	// page generation
+		str += getFeedStr(list[i]);
+	}
+	$("#contents-area").html(str);
+}
+*/
+
+function logout() {
+	var res = confirm("로그아웃 하시겠습니까?")
+	if (res == true) {
+		AJAX.call("jsp/logout.jsp", null, function(data) {
+			window.location.href = "login.html";
+		});
+	}
+}
+</script>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalabe=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<title>MySNS</title>
+<style>
+.logo {
+	width: 130px;
+	height: 130px;
+	padding-top: 190px;
+	padding-right: 100px; 
+	margin-left: 115px;
+	
+}
+
+.logo_ {
+	width: 180px;
+	height: 120px;
+	margin-left: 81px;
+	
+}
+
+</style>
+</head>
+<body>
+	<img src="images/그림1.png" class="logo">
+	<img src="images/그림2.png" class="logo_">
+</body>
+</html>
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	Page.getUsrobj(start);
+});
+
+function start(usrobj) {
+	setTimeout(function() {
+		$("body").fadeOut();
+	
+		setTimeout(function() {
+			if (usrobj == null) {
+				window.location.href = "login.html";
+			}
+			else {
+				window.location.href = "main.html";
+			}
+		}, 800);
+	}, 2000);
+}
+</script>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>MyLibrary</title>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<style>
+
+   body {
+      padding : 10px;
+   }
+   
+   label {
+        display: inline-block;
+        font-size: .85em;
+   }
+
+</style>
+</head>
+<body>
+<div class="page-hdr">
+<img src="images/back_btn.png" class="back_btn" onclick="goBack()">
+<span class="text_hdr">결제하기</span>
+</div>
+<div class="page-body">
+<h3>배달정보</h3>
+<h5>10371</h5>
+<h5>경기도 고양시 일산서구 대산로 164(문촌마을2단지아파트)</h5>
+<form method="post" action="baedal.jsp">
+<input type="text" name="sjuso" placeholder="상세 주소"> <br>
+<input type="text" name="phone" placeholder="전화번호"> <br>
+
+<h3>반납일자</h3>
+   <div class="feed">
+<img
+src="images/img21.png"
+style="float: left; width:80px; height:100px;"
+/>
+      <p>
+      반납안내<br>
+      기본 대여일은 7일입니다.
+      연장이 필요할 경우 최대 1회(7일)가능합니다.
+      단, 예약되어 있는 도서의 경우 연장이 제한될 수 있습니다.
+      </p>
+<input type="date" name="date"/>
+   </div>
+<h3>배달료 결제</h3>
+
+<img
+src="images/img22.png"
+style="float: left; width:80px; height:100px;"
+/>
+
+
+<label><input type="radio" name="pay" value="cash" checked />무통장입금</label>
+<label><input type="radio" name="pay" value="card" />신용/체크카드</label>
+
+
+<input type="submit" value="다음">
+</form>
+</div>
+</body>
+</html>

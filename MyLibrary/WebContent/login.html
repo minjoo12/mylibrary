@@ -34,10 +34,16 @@ input[type=button] {
 	background-color: transparent;
 	border: 0px none;
 }
+
+input[type=checkbox] {
+	margin-left: 23px;
+}
 </style>
 </head>
 <body>
-	<div class="page-hdr">로그인</div>
+<div class="page-hdr">
+로그인
+</div>
 	<div class="page-body">
 		<div class="section pad-24 mtop-30">
 			<input id="id" type="text" placeholder="아이디">
@@ -45,8 +51,12 @@ input[type=button] {
 		</div>
 	</div>
 	<input type="submit" value="로그인" onclick="login()">
+	<input type="checkbox" id="eye"> 비밀번호 표시
+	<div>
 	<a href="signup.html"><input type="button" value="회원가입"></a>
 	<a href="findid.html"><input type="button" value="아이디/비밀번호찾기"></a>
+	<a href="admin_main.html"><input type="button" value="          관리자 페이지로 넘어가기          "></a>
+	</div>
 </body>
 </html>
 
@@ -68,7 +78,7 @@ function login() {
 		return;
 	}
 	
-	var url = "jsp/login.jsp?id=" + id + "&ps=" + ps;
+	var url = "login.jsp?id=" + id + "&ps=" + ps;
 	AJAX.call(url, null, function(data) {
 		var code = data.trim();
 		if (code == "NA") {
@@ -87,4 +97,16 @@ function login() {
 		}
 	});
 }
+
+$(document).ready(function(){
+    $("#eye").change(function(){
+        if($("#eye").is(":checked")){
+        	$('#ps').attr('type',"text");
+        }else{
+        	$('#ps').attr('type',"password");
+        }
+    });
+});
+
+
 </script>

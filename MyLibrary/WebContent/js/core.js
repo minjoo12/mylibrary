@@ -1,6 +1,6 @@
 var Page = {
 	init: function (cbfunc) {
-		AJAX.call("jsp/session.jsp", null, function(data) {
+		AJAX.call("session.jsp", null, function(data) {
 			var ustr = data.trim();
 			if (ustr == "null") {
 				alert("로그인이 필요한 서비스입니다.");
@@ -14,7 +14,7 @@ var Page = {
 	},
 	
 	getUsrobj: function (cbfunc) {
-		AJAX.call("jsp/session.jsp", null, function(data) {
+		AJAX.call("session.jsp", null, function(data) {
 			var ustr = data.trim();
 			var usrobj = (ustr == "null") ? null : JSON.parse(ustr);
 				cbfunc(usrobj);

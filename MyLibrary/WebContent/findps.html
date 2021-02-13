@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="css/core.css">
 <title>MyLibrary</title>
 <style>
+body {
+	padding : 10px;
+}
 .desc {
    float: left;
    width: 100%;
@@ -78,17 +81,19 @@ input[type=submit] {
 </style>
 </head>
 <body>
-   <div class="page-hdr">아이디/비밀번호 찾기</div>
-   <a href="findid.html"><input type="button" class="fid" value="아이디 찾기"></a>
-   <a href="findps.html"><input type="button" class="fps" value="비밀번호 찾기"></a>
-   <hr size=1px width= 100% color="#400080">
-   <div class="page-body">
-      <div class="section2 pad-24"><div class="topdown">
-       	<input id="id" type="text" class="mtop-10" placeholder="아이디">
-       	<input id="name" type="text" class="mtop-10" placeholder="이름">
-       	<input id="tel" type="text" class="mtop-10" placeholder="전화번호">
-       	</div></div></div>
-       	<input type="submit" value="비밀번호 찾기" onclick="findps()">         
+	<div class="page-hdr">
+	아이디/비밀번호 찾기
+	</div>
+   		<a href="findid.html"><input type="button" class="fid" value="아이디 찾기"></a>
+   		<a href="findps.html"><input type="button" class="fps" value="비밀번호 찾기"></a>
+   			<hr size=1px width= 100% color="#400080">
+   	<div class="page-body">
+      	<div class="section2 pad-24"><div class="topdown">
+       		<input id="id" type="text" class="mtop-10" placeholder="아이디">
+       		<input id="name" type="text" class="mtop-10" placeholder="이름">
+       		<input id="tel" type="text" class="mtop-10" placeholder="전화번호">
+    </div></div></div>
+       		<input type="submit" value="비밀번호 찾기" onclick="findps()">         
 </body>
 </html>
 <script src="js/jquery-1.12.0.min.js"></script>
@@ -116,7 +121,7 @@ function findps() {
 		return;
 	}
 	
-	var url = "jsp/findps.jsp?id=" + id + "&name=" + name + "&tel" + tel;
+	var url = "findps.jsp?id=" + id + "&name=" + name + "&tel" + tel;
 	AJAX.call(url, null, function(data) {
 		var code = data.trim();
 		if (code == "NA") {

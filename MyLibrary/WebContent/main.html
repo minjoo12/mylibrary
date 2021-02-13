@@ -49,11 +49,11 @@ img.bookf {
 </style>
 </head>
 <body>
-	<div class="page-hdr">품 안의 도서관</div>
+	<div class="page-hdr"><span class="main_hdr">품 안의 도서관</span></div>
 	<div class="page-body">
-	<img src="images/그림11.png" class="wish">
+	<a href="basketlist.jsp"><img src="images/img11.png" class="wish"></a>
 	<div class="wish_">나의 서재</div>
-	<img src="images/그림28.png" class="bookf">
+	<a href="select1.html"><img src="images/img28.png" class="bookf"></a>
 	<div class="bookf_">도서 검색</div></div>
 	<div class="logout" onclick="logout()">로그아웃</div>
 </body>
@@ -73,27 +73,11 @@ function start(usrobj) {
 	
 	var params = "id=" + usrobj.id;
 }
-/*
-	AJAX.call("jsp/feedFetch.jsp", params, function(data) {
-		var feeds = JSON.parse(data.trim());
-		var list = feeds.concat(feedList);
-		generate(list);
-	});
-}
-
-function generate(list) {
-	var str = "";
-	for (var i=0; i<list.length; i++) {	// page generation
-		str += getFeedStr(list[i]);
-	}
-	$("#contents-area").html(str);
-}
-*/
 
 function logout() {
 	var res = confirm("로그아웃 하시겠습니까?")
 	if (res == true) {
-		AJAX.call("jsp/logout.jsp", null, function(data) {
+		AJAX.call("logout.jsp", null, function(data) {
 			window.location.href = "login.html";
 		});
 	}

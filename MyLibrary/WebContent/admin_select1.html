@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>MyLibrary</title>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<style type="text/css">
+
+input[type=text] {
+	margin-top: -10px;
+}
+
+ul {
+	list-style: none;
+}
+
+.filterUL {
+	padding-left:0px;
+	margin-left: 38px;
+	margin-right: 38px;
+	line-height: 42px;
+	text-align: center;
+	color: white;
+	font-size: 1.1em;	
+}
+
+.list1 {
+	background-color: #8148ba;
+	height: 40px;
+	margin-top: 30px;
+	padding-bottom: 3px;
+}
+
+.list2 {
+	background-color: #8148ba;
+	height: 40px;
+	margin-top: 10px;
+	padding-bottom: 3px;
+}
+
+a {
+	color: inherit;
+	text-decoration:none;
+	}
+	
+</style>
+</head>
+<body>
+<div class="page-hdr">
+<img src="images/back_btn.png" class="back_btn" onclick="goBack()">
+<span class="text_hdr">도서관 선택</span>
+</div>
+<div class="page-body">
+    <div>
+        <input id="filterText" type="text" placeholder="도서관 검색"><br>
+        <ul class="filterUL">
+            <li class="list1"><a href="bookAdd.html">공릉청소년화랑도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">노원정보도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">상계문화정보도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">월계문화정보도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">노원어린이정보도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">한내지혜의숲(한내도서관)</a></li>
+            <li class="list2"><a href="bookAdd.html">메아리작은도서관(평생)</a></li>
+            <li class="list2"><a href="bookAdd.html">수락작은도서관(상계3.4동)</a></li>
+            <li class="list2"><a href="bookAdd.html">하늘작은도서관(중계1.2동)</a></li>
+            <li class="list2"><a href="bookAdd.html">책사랑북카페(중계1동)</a></li>
+            <li class="list2"><a href="bookAdd.html">해솔작은도서관(상계5동)</a></li>
+            <li class="list2"><a href="bookAdd.html">하늘작은도서관(중계1.2동)</a></li>
+            <li class="list2"><a href="bookAdd.html">책이랑친구랑작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">불암도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">도란도란작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">꿈꾸는작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">반디작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">파랑새작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">책누리작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">한울작은도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">삼육대학교도서관</a></li>
+            <li class="list2"><a href="bookAdd.html">인덕대학교중앙도서관</a></li>
+       	 </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script type="text/javascript">
+function goBack() {
+	  window.history.back();
+	}
+
+jQuery(function($) {
+    $('#filterText').keyup(function(event) {
+        var val = $(this).val();
+        if (val == "") {
+            $('.filterUL li').show();
+        } else {
+            $('.filterUL li').hide();
+            $(".filterUL li:contains('"+val+"')").show();
+        }
+    });
+});
+</script>

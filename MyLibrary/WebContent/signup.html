@@ -12,6 +12,7 @@
    font-size: 0.9em;
 }
 
+
 .button {
    float: left;
    width: 100%;
@@ -25,10 +26,10 @@
 }
 
 input[type=submit] {
-	color: white;
-	background-color: #bebebe;
-	border: 1px solid #bebebe;
-	border-radius: 5px;
+   color: white;
+   background-color: #bebebe;
+   border: 1px solid #bebebe;
+   border-radius: 5px;
 }
 </style>
 </head>
@@ -36,14 +37,14 @@ input[type=submit] {
    <div class="page-hdr">회원가입</div>
    <div class="page-body">
       <div class="section2 pad-24 mtop-10">
-	       	<input id="id" type="text" placeholder="아이디">
-	       	<input id="ps" type="password" class="mtop-10" placeholder="비밀번호">
-	       	<input id="ps2" type="password" class="mtop-10" placeholder="비밀번호 확인">
-	       	<input id="email" type="text" class="mtop-10" placeholder="이메일">
-	       	<input id="name" type="text" class="mtop-10" placeholder="이름">
-	       	<input id="tel" type="text" class="mtop-10" placeholder="전화번호">
-	       	<input id="birth" type="text" class="mtop-10" placeholder="생년월일">
-	       	<input type="submit" class="mtop-20" value="회원가입" onclick="signup()">      
+             <input id="id" type="text" placeholder="아이디">
+             <input id="ps" type="password" class="mtop-10" placeholder="비밀번호">
+             <input id="ps2" type="password" class="mtop-10" placeholder="비밀번호 확인">
+             <input id="email" type="text" class="mtop-10" placeholder="이메일">
+             <input id="name" type="text" class="mtop-10" placeholder="이름">
+             <input id="tel" type="text" class="mtop-10" placeholder="전화번호">
+             <input id="birth" type="text" class="mtop-10" placeholder="생년월일">
+             <input type="submit" class="mtop-20" value="회원가입" onclick="signup()">      
       </div>
    </div>
 </body>
@@ -53,68 +54,69 @@ input[type=submit] {
 <script src="js/core.js"></script>
 <script>
 function signup() {
-	var id = $("#id").val().trim();
-	if (id == "") {
-		alert("아이디를 입력해 주세요.");
-		$("#id").focus();
-		return;
-	}
-	
-	var ps = $("#ps").val().trim();
-	if (ps == "") {
-		alert("패스워드를 입력해 주세요.");
-		$("#ps").focus();
-		return;
-	}
-	
-	var ps2 = $("#ps2").val().trim();
-	if (ps2 != ps) {
-		alert("입력된 두 개의 패스워드가 다릅니다.");
-		$("#ps2").focus();
-		return;
-	}
-	
-	var name = $("#name").val().trim();
-	if (name == "") {
-		alert("이름을 입력해 주세요.");
-		$("#name").focus();
-		return;
-	}
-	
-	var email = $("#email").val().trim();
-	if (email == "") {
-		alert("이메일을 입력해 주세요.");
-		$("#email").focus();
-		return;
-	}
-	
-	var tel = $("#tel").val().trim();
-	if (tel == "") {
-		alert("전화번호를 입력해 주세요.");
-		$("#tel").focus();
-		return;
-	}
-	
-	var birth = $("#birth").val().trim();
-	if (birth == "") {
-		alert("생년월일을 입력해 주세요.");
-		$("#birth").focus();
-		return;
-	}
-	
-	var url = "jsp/signup.jsp?id=" + id + "&ps=" + ps + "&name=" + name + "&email=" + email + "&tel=" + tel + "&birth=" + birth;
-	AJAX.call(url, null, function(data) {
-		var code = data.trim();
-		if (code == "EX") {
-			alert("이미 가입한 회원입니다.");
-		}
-		else if (code == "ER") {
-			alert("회원가입 중 에러가 발생했습니다.");
-		}
-		else {
-			alert("회원가입이 완료되었습니다.");
-			window.location.href = "login.html";
-		}
-	});
+   var id = $("#id").val().trim();
+   if (id == "") {
+      alert("아이디를 입력해 주세요.");
+      $("#id").focus();
+      return;
+   }
+   
+   var ps = $("#ps").val().trim();
+   if (ps == "") {
+      alert("패스워드를 입력해 주세요.");
+      $("#ps").focus();
+      return;
+   }
+   
+   var ps2 = $("#ps2").val().trim();
+   if (ps2 != ps) {
+      alert("입력된 두 개의 패스워드가 다릅니다.");
+      $("#ps2").focus();
+      return;
+   }
+   
+   var name = $("#name").val().trim();
+   if (name == "") {
+      alert("이름을 입력해 주세요.");
+      $("#name").focus();
+      return;
+   }
+   
+   var email = $("#email").val().trim();
+   if (email == "") {
+      alert("이메일을 입력해 주세요.");
+      $("#email").focus();
+      return;
+   }
+   
+   var tel = $("#tel").val().trim();
+   if (tel == "") {
+      alert("전화번호를 입력해 주세요.");
+      $("#tel").focus();
+      return;
+   }
+   
+   var birth = $("#birth").val().trim();
+   if (birth == "") {
+      alert("생년월일을 입력해 주세요.");
+      $("#birth").focus();
+      return;
+   }
+   
+   var url = "signup.jsp?id=" + id + "&ps=" + ps + "&name=" + name + "&email=" + email + "&tel=" + tel + "&birth=" + birth;
+   AJAX.call(url, null, function(data) {
+      var code = data.trim();
+      if (code == "EX") {
+         alert("이미 가입한 회원입니다.");
+      }
+      else if (code == "ER") {
+         alert("회원가입 중 에러가 발생했습니다.");
+         console.out(url);
+      }
+      else {
+         alert("회원가입이 완료되었습니다.");
+         window.location.href = "login.html";
+      }
+   });
 }
 </script>

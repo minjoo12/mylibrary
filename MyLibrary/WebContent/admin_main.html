@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>MyLibrary</title>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/core.css">
+<style type="text/css">
+
+img.book {
+	width: 50px;
+	height: 50px;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.book_ {
+	text-align: center;
+	width: 30%;
+	margin-left: 95px;
+	margin-top: -40px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6b4194;
+}
+
+img.user {
+	width: 50px;
+	height: 50px;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.user_ {
+	text-align: center;
+	width: 30%;
+	margin-left: 95px;
+	margin-top: -40px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6b4194;
+}
+
+img.deliv {
+	width: 50px;
+	height: 50px;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.deliv_ {
+	text-align: center;
+	width: 30%;
+	margin-left: 95px;
+	margin-top: -40px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6b4194;
+}
+
+.logout {
+  color: #6b4194;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 70px;
+  margin-top: 50px;
+}
+
+a {
+	color: inherit;
+	text-decoration:none;
+}
+	
+</style>
+</head>
+<body>
+	<div class="page-hdr"><span class="main_hdr">관리자 설정</span></div>
+	<div class="page-body">
+	<img src="images/img30.png" class="book">
+	<div class="book_"><a href="admin_select1.html">도서 관리</a></div>
+	<img src="images/img31.png" class="user">
+	<div class="user_"><a href="userList.jsp">회원 관리</a></div>
+	<img src="images/img32.png" class="deliv">
+	<div class="deliv_"><a href="admin_baedal.jsp">배달 관리</a></div></div>
+
+</body>
+</html>
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/core.js"></script>
+<script type="text/javascript">
+
+/*
+$(document).ready(function() {
+	Page.init(start);
+});
+
+var pagectx = {};
+function start(usrobj) {
+	pagectx.usrobj = usrobj;
+	
+	var params = "id=" + usrobj.id;
+}
+	AJAX.call("jsp/feedFetch.jsp", params, function(data) {
+		var feeds = JSON.parse(data.trim());
+		var list = feeds.concat(feedList);
+		generate(list);
+	});
+}
+
+function generate(list) {
+	var str = "";
+	for (var i=0; i<list.length; i++) {	// page generation
+		str += getFeedStr(list[i]);
+	}
+	$("#contents-area").html(str);
+}
+*/
+
+function logout() {
+	var res = confirm("로그아웃 하시겠습니까?")
+	if (res == true) {
+		AJAX.call("logout.jsp", null, function(data) {
+			window.location.href = "login.html";
+		});
+	}
+}
+</script>
